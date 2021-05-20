@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Bank</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+	
+</script>
+</head>
+<body>
+	<div class="container" align="center">
+		<table>
+			<tr>
+				<h2>
+					<b>Banks</b>
+				</h2>
+			</tr>
+			<tr>
+
+				<div class="row" align="center">
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<table class="table">
+							<thead class="thead-red">
+								<tr>
+									<th>BANK ID</th>
+									<th>Bank Name</th>
+									<th>Mark Favorite</th>
+									<th>STATUS</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:object="${bank}">
+									<td th:text="*{id}">id</td>
+									<td th:text="*{name}">name</td>
+									<td><a th:href="@{'/favorite/' + *{name}}">Mark
+											Favorite</a></td>
+									<td>[[${favorite}]]</td>
+								</tr>
+
+							</tbody>
+						</table>
+						<tr>
+							<h1>
+								<a th:href="@{/favor}">favoriteList</a>
+							</h1>
+
+						</tr>
+
+
+					</div>
+				</div>
+			</tr>
+		</table>
+
+	</div>
+
+
+
+
+</body>
+</html>

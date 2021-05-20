@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Find Bank</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+</script>
+</head>
+<body>
+	<div class="row" align="center">
+		<div class="col-lg-6 col-md-6 col-sm-6">
+			<form th:action="@{/mybranches}" th:object="${branch}" method="get">
+
+				<table>
+					<tr>
+						<label class="form-label"><h1>City Name</h1></label>
+						<td><select th:field="*{city}" class="form-select">
+								<option th:value="Bangalore" th:text="Banglore"></option>
+								<option th:value="Indore" th:text="Indore"></option>
+								<option th:value="Mumbai" th:text="Mumbai"></option>
+								<option th:value="Delhi" th:text="Delhi"></option>
+								<option th:value="Jaipur" th:text="Jaipur"></option>
+						</select></td>
+					</tr>
+				</table>
+				<br>
+				<button type="submit" class="btn btn-info">Find</button>
+			</form>
+		</div>
+
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<form th:action="@{/mybranches}" th:object="${branch}" method="get">
+				<table></table>
+				<tr>
+					<td><label class="form-label"><h1>Search</h1></label></td>
+					<td><input type="text" th:field="*{city}" class="form-control"
+						placeholder="Search" /></td>
+				</tr>
+				<br>
+				<button type="submit" class="btn btn-info">Search</button>
+
+				</table>
+			</form>
+		</div>
+
+
+	</div>
+
+	<br>
+	<div align="center">
+		<table>
+			<h2>
+				<b>Banks</b>
+			</h2>
+
+
+			<tr>
+				<div class="col-sm-3" align="center">
+					<div class="panel-body" align="center">
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th>IFSC</th>
+									<th>Branch</th>
+									<th>Address</th>
+									<th>City</th>
+									<th>District</th>
+									<th>State</th>
+									<th>Bank Name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="branch : ${listbranch }">
+									<td th:text="${branch.ifsc}">IFSC</td>
+									<td th:text="${branch.branch}">Branch</td>
+									<td th:text="${branch.address}">Address</td>
+									<td th:text="${branch.city}">City</td>
+									<td th:text="${branch.district}">District</td>
+									<td th:text="${branch.state}">State</td>
+									<!--  <td th:text="${branch.bank_name}">Bank_id</td>-->
+									<td><a th:href="@{'/bank/' + ${branch.bank_name}}" th:text="${branch.bank_name}">Bank_id</a></td>
+								</tr>
+
+							</tbody>
+						</table>
+
+					</div>
+
+				</div>
+
+			</tr>
+		</table>
+		</div>
+				
+</body>
+</html>

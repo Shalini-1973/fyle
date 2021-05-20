@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Favorites</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+	
+</script>
+</head>
+<body>
+	<div class="container" align="center">
+	<table>
+	<tr>
+		<h2>
+			<b>Favorite Banks</b>
+		</h2>
+	</tr>
+	<tr>
+				<div class="row" align="center">
+					<div class="col-lg-6 col-md-6 col-sm-6">
+						<table class="table">
+							<thead class="thead-light">
+								<tr>
+									<th>Favorite Bank Id</th>
+									<th>Favorite Bank Name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="favorite : ${listfavorite}">
+									<td th:text="${favorite.id}">Id</td>
+									<td th:text="${favorite.bank}">Bank</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+					</div>
+
+				</div>
+	</tr>
+	</table>
+	</div>
+
+
+
+
+</body>
+</html>
